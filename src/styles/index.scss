@@ -1,0 +1,20 @@
+@import "global.scss";
+
+// components globaux
+@import "./components/header.scss";
+@import "./components/footer.scss";
+
+//Home
+@import "./components/Home/bandeauTopAccueil.scss";
+@import "./components/Home/newsletterComponent.scss";
+@import "./components/Home/selectionRecettes.scss";
+@import "./components/Home/sitePresentation.scss";
+
+//Recettes
+@import "./components/Recettes/recettesList.scss";
+
+//MesRecettes
+@import "./components/MesRecettes/recettesList.scss";
+
+//Connexion
+@import "./components/Connexion/logInForm.scss";

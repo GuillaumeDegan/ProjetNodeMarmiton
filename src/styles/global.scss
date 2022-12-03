@@ -1,0 +1,24 @@
+//mettre les fonts ici
+
+//mettre les variables ici (couleurs charte par expl)
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

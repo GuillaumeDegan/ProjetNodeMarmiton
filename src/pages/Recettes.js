@@ -1,17 +1,17 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import RecettesList from "../components/MesRecettes/RecettesList";
+import RecettesList from "../components/Recettes/recettesList";
 
-const MesRecettes = () => {
+const Recettes = () => {
   return (
     <div>
       <NavBar />
-      <h1>Mes recettes</h1>
+      <h1>Recettes :</h1>
       <RecettesList />
       <Footer />
     </div>
   );
 };
 
-export default MesRecettes;
+export default Recettes;
