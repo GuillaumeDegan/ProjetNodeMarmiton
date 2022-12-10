@@ -1,4 +1,4 @@
-.logInFormContainer {
+.SignUpFormContainer {
     min-height: 300px;
     padding: 20px 0;
     width: 500px;
@@ -8,11 +8,11 @@
     border: 2px solid #000;
     align-content: center;
     align-items: center;
-    .logInForm {
+    .SignUpForm {
         display: flex;
         flex-direction: column;
         padding-bottom: 20px;
-        .logInInputsContainer {
+        .SignUpInputsContainer {
             width: 300px;
             margin: 10px 0;
             display: flex;

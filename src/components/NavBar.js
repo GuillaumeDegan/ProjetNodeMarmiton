@@ -22,7 +22,8 @@ const NavBar = () => {
           <NavLink to="/recettes">Recettes</NavLink>
           <NavLink to="/mesrecettes">Mes recettes</NavLink>
           <button onClick={() => setUser(null)}>Deconnexion</button>
-          <dir>{"Bienvenu " + user}</dir>
+          <dir>{"Bienvenu " + user.username}</dir>
+          <NavLink to="/profile">Mon profil</NavLink>
         </>
       );
     }

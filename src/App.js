@@ -6,6 +6,7 @@ import MesRecettes from "./pages/MesRecettes";
 import Recettes from "./pages/Recettes";
 import { UserContext } from "./contexts/UserContext";
 import { useState } from "react";
+import Profile from "./pages/Profile";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -20,6 +21,7 @@ function App() {
             <Route path="/recettes" element={<Recettes />}></Route>
             <Route path="/recette/*" element={<Recette />}></Route>
             <Route path="/mesrecettes" element={<MesRecettes />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
             <Route path="*" element={<Home />}></Route>
           </Routes>
         </UserContext.Provider>
