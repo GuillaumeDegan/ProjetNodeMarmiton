@@ -21,12 +21,7 @@ const SignUpForm = () => {
             password: password
         }).then(function (response) {
             console.log(response);
-            setUser({
-                username: username,
-                email: email,
-                phoneNumber: phoneNumber,
-                password: password
-            });
+            setUser(response.data);
             setConnected(true);
           })
           .catch(function (error) {
