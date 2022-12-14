@@ -37,7 +37,7 @@ const LogInForm = () => {
             <input className="logInInputs" type="text" name="usernameInput" id="usernameInput" />
           </div>
           <div className="logInInputsContainer">
-            <label htmlFor="passwordInput">Mot de passe mdrrrrrr:</label>
+            <label htmlFor="passwordInput">Mot de passe lol:</label>
             <input className="logInInputs" type="text" name="passwordInput" id="passwordInput" />
           </div>
         </form>
