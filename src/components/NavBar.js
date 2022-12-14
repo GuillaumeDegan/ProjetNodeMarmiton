@@ -17,7 +17,7 @@ const NavBar = () => {
       return (
         <>
         <div>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">Home test</NavLink>
           <NavLink to="/connexion">Connexion</NavLink>
           <NavLink to="/recettes">Recettes</NavLink>
         </div>
