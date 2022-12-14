@@ -1,4 +1,17 @@
 header {
-    background-color: red;
+    background-color: rgb(83, 83, 83);
     height: 75px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.options_header {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button_header {
+    color: rgb(255, 255, 255);
 }

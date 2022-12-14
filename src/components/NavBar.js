@@ -16,22 +16,24 @@ const NavBar = () => {
     if (user === null) {
       return (
         <>
-        <div>
-          <NavLink to="/">Home test</NavLink>
-          <NavLink to="/connexion">Connexion</NavLink>
-          <NavLink to="/recettes">Recettes</NavLink>
+        <div className="options_header">
+          <NavLink to="/" className={"button_header"}>Home</NavLink>
+          <NavLink to="/connexion" className={"button_header"}>Connexion</NavLink>
+          <NavLink to="/recettes" className={"button_header"}>Recettes</NavLink>
         </div>
         </>
       );
     } else {
       return (
         <>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/recettes">Recettes</NavLink>
-          <NavLink to="/mesrecettes">Mes recettes</NavLink>
-          <button onClick={() => disconnect()}>Deconnexion</button>
-          <dir>{"Bienvenu " + user.username}</dir>
-          <NavLink to="/profile">Mon profil</NavLink>
+        <div className="options_header">
+          <NavLink to="/" className={"button_header"}>Home</NavLink>
+          <NavLink to="/recettes" className={"button_header"} >Recettes</NavLink>
+          <NavLink to="/mesrecettes" className={"button_header"}>Mes recettes</NavLink>
+          <button onClick={() => disconnect()} className={"button_header"}>Deconnexion</button>
+          <dir className={"button_header"} >{"Bienvenu " + user.username}</dir>
+          <NavLink to="/profile" className={"button_header"}>Mon profil</NavLink>
+          </div>
         </>
       );
     }
