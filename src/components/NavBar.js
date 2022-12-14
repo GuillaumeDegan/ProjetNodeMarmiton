@@ -16,9 +16,11 @@ const NavBar = () => {
     if (user === null) {
       return (
         <>
+        <div>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/connexion">Connexion</NavLink>
           <NavLink to="/recettes">Recettes</NavLink>
+        </div>
         </>
       );
     } else {
