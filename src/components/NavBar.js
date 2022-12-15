@@ -26,7 +26,7 @@ const NavBar = () => {
     } else {
       return (
         <>
-        <div className="options_header">
+        <div className="options_header1">
           <NavLink to="/" className={"button_header"}>Home</NavLink>
           <NavLink to="/recettes" className={"button_header"} >Recettes</NavLink>
           <NavLink to="/mesrecettes" className={"button_header"}>Mes recettes</NavLink>

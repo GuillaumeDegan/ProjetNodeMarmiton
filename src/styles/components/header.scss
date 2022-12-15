@@ -3,11 +3,19 @@ header {
     height: 75px;
     display: flex;
     align-items: center;
+    color: white;
+    padding: 40px;
     
 }
 
 .options_header {
     width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.options_header1 {
+    width: 50%;
     display: flex;
     justify-content: space-evenly;
 }
