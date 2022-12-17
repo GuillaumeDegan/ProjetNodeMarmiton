@@ -9,7 +9,7 @@ const NavBar = () => {
 
   function disconnect() {
     setRedirect(true);
-    setTimeout(() => setUser(null), 200);
+    setTimeout(() => window.location.reload(), 200);
   }
 
   function navBarState() {
@@ -31,7 +31,7 @@ const NavBar = () => {
           <NavLink to="/recettes" className={"button_header"} >Recettes</NavLink>
           <NavLink to="/mesrecettes" className={"button_header"}>Mes recettes</NavLink>
           <button onClick={() => disconnect()} className={"button_header"}>Deconnexion</button>
-          <dir className={"button_header"} >{"Bienvenu " + user.username}</dir>
+          <div className={"button_header"} >{"Bienvenu " + user.username}</div>
           <NavLink to="/profile" className={"button_header"}>Mon profil</NavLink>
           </div>
         </>

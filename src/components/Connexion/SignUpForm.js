@@ -14,7 +14,7 @@ const SignUpForm = () => {
         const phoneNumber = document.getElementById("phoneNumberInput").value;
         const password = document.getElementById("passwordInput").value;
 
-        axios.post("http://localhost:4000/api/v1/users", {
+        axios.post("/users", {
             username: username,
             email: email,
             phoneNumber: phoneNumber,

@@ -11,7 +11,7 @@ const LogInForm = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/v1/users")
+      .get("/users")
       .then((res) => setUsersData(res.data));
   }, []);
 
@@ -37,7 +37,7 @@ const LogInForm = () => {
             <input className="logInInputs" type="text" name="usernameInput" id="usernameInput" />
           </div>
           <div className="logInInputsContainer">
-            <label htmlFor="passwordInput">Mot de passe mdrrrrrr:</label>
+            <label htmlFor="passwordInput">Mot de passe :</label>
             <input className="logInInputs" type="text" name="passwordInput" id="passwordInput" />
           </div>
         </form>

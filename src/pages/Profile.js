@@ -5,11 +5,11 @@ import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import axios from 'axios';
 
+
 const Profile = () => {
     const { user, setUser } = useContext(UserContext);
     const [ switchToUpdateForm, setSwitchToUpdateForm ] = useState(false);
 
-    console.log(user.username)
     const [FormState, setFormState] = useState({
         username: user.username,
         email: user.email,
@@ -19,15 +19,15 @@ const Profile = () => {
 
     function updateProfile() {
         console.log(FormState)
-        axios.patch("http://localhost:4000/api/v1/recipes/" + user._id, {
+        axios.patch("/users/" + user._id, {
             username: FormState.username,
             email: FormState.email,
             phoneNumber: FormState.phoneNumber,
             password: FormState.password,
         }).then(function (response) {
             console.log(response);
-            setSwitchToUpdateForm(false);
             setUser(response.data);
+            setSwitchToUpdateForm(false);
           })
           .catch(function (error) {
             console.log(error);
@@ -78,7 +78,6 @@ const Profile = () => {
                     <button onClick={() => setSwitchToUpdateForm(true)}>Modifier le profile</button>
                 </div>
             }
-            
             <Footer />
         </div>
     );

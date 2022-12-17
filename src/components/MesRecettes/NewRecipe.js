@@ -2,11 +2,12 @@ import React from 'react';
 import axios from 'axios';
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
+import { useEffect } from 'react';
 
-const NewRecipe = ({ test }) => {
+const NewRecipe = ({ recipeToUpdate, updateFunction }) => {
     const { user, setUser } = useContext(UserContext);
 
-    function createNewRecipe() {
+    function UpdateOrCreateRecipe() {
         const name = document.getElementById("RecipeName").value;
         const category = document.getElementById("RecipeCategory").value;
         const servings = document.getElementById("RecipeServings").value;
@@ -16,24 +17,58 @@ const NewRecipe = ({ test }) => {
         const prepTime = document.getElementById("RecipePrepTime").value;
         const image = document.getElementById("RecipeImage").value;
 
-        axios.post("http://localhost:4000/api/v1/recipes", {
-            name: name,
-            category: category,
-            id_user: user._id,
-            servings: servings,
-            ingredients: ingredients,
-            steps: steps,
-            cooking: cooking,
-            prepTime: prepTime,
-            image: image
-        }).then(function (response) {
-            console.log(response);
-            test()
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        if(recipeToUpdate === null) {
+            axios.post("/recipes", {
+                name: name,
+                category: category,
+                id_user: user._id,
+                servings: servings,
+                ingredients: ingredients,
+                steps: steps,
+                cooking: cooking,
+                prepTime: prepTime,
+                image: image
+            }).then(function (response) {
+                console.log(response);
+                updateFunction()
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+        } else {
+            axios.patch("/recipes/" + recipeToUpdate._id, {
+                name: name,
+                category: category,
+                id_user: user._id,
+                servings: servings,
+                ingredients: ingredients,
+                steps: steps,
+                cooking: cooking,
+                prepTime: prepTime,
+                image: image
+            }).then(function (response) {
+                console.log(response);
+                updateFunction()
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+        }
     }
+
+    useEffect(() => {
+        if(recipeToUpdate !== null) {
+            document.getElementById("RecipeName").value = recipeToUpdate.name;
+            document.getElementById("RecipeCategory").value = recipeToUpdate.category;
+            document.getElementById("RecipeServings").value = recipeToUpdate.servings;
+            document.getElementById("RecipeIngredients").value = recipeToUpdate.ingredients;
+            document.getElementById("RecipeSteps").value = recipeToUpdate.steps;
+            document.getElementById("RecipeCooking").value = recipeToUpdate.cooking;
+            document.getElementById("RecipePrepTime").value = recipeToUpdate.prepTime;
+            document.getElementById("RecipeImage").value = recipeToUpdate.image;
+            document.getElementById("RecipeFormButton").innerHTML = "Modifier";
+        }
+    })
 
     return (
         <div>
@@ -74,7 +109,7 @@ const NewRecipe = ({ test }) => {
                     <input id='RecipeImage' type="text" />
                 </div>
             </form>
-            <button onClick={() => createNewRecipe()}>Créer</button>
+            <button id="RecipeFormButton" onClick={() => UpdateOrCreateRecipe()}>Créer</button>
         </div>
     );
 };
