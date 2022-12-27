@@ -26,13 +26,16 @@ const NavBar = () => {
     } else {
       return (
         <>
-        <div className="options_header1">
-          <NavLink to="/" className={"button_header"}>Home</NavLink>
-          <NavLink to="/recettes" className={"button_header"} >Recettes</NavLink>
-          <NavLink to="/mesrecettes" className={"button_header"}>Mes recettes</NavLink>
-          <button onClick={() => disconnect()} className={"button_header"}>Deconnexion</button>
-          <div className={"button_header"} >{"Bienvenu " + user.username}</div>
-          <NavLink to="/profile" className={"button_header"}>Mon profil</NavLink>
+          <div className="options_header1">
+            <div>
+              <NavLink to="/" className={"button_header"}>Home</NavLink>
+              <NavLink to="/recettes" className={"button_header"} >Recettes</NavLink>
+              <NavLink to="/mesrecettes" className={"button_header"}>Mes recettes</NavLink>
+            </div>
+            <div>
+              <button onClick={() => disconnect()} className={"button_header"}>Deconnexion</button>
+              <NavLink to="/profile" className={"button_header"}>{"Bienvenu " + user.username}</NavLink>
+            </div>
           </div>
         </>
       );

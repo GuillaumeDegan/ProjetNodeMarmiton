@@ -71,45 +71,48 @@ const NewRecipe = ({ recipeToUpdate, updateFunction }) => {
     })
 
     return (
-        <div>
+        <div className='recipeFormContainer'>
             <form className='newRecipeForm' action="">
                 <div className='inputContainer'>
-                    <label htmlFor="RecipeName">Nom de la recette</label>
+                    <label htmlFor="RecipeName">Nom de la recette :</label>
                     <input id='RecipeName' type="text" />
                 </div>
                 <div className='inputContainer'>
-                    <label htmlFor="RecipeCategory">Catégorie</label>
+                    <label htmlFor="RecipeCategory">Catégorie :</label>
                     <input id='RecipeCategory' type="text" />
                 </div>
                 <div className='inputContainer'>
-                    <label htmlFor="RecipeServings">Nombre de personnes</label>
+                    <label htmlFor="RecipeServings">Nombre de personnes :</label>
                     <input id='RecipeServings' type="number" />
                 </div>
                 <div className='inputContainer'>
-                    <label htmlFor="RecipeIngredients">Ingrédients</label>
+                    <label htmlFor="RecipeIngredients">Ingrédients :</label>
                     <input id='RecipeIngredients' type="text" />
                 </div>
                 <div className='inputContainer'>
-                    <label htmlFor="RecipeSteps">Etapes</label>
+                    <label htmlFor="RecipeSteps">Etapes :</label>
                     <textarea name="" id="RecipeSteps" cols="30" rows="10"></textarea>
                 </div>
                 <div className='inputContainer'>
-                    <label htmlFor="RecipeCooking">Cuisson</label>
+                    <label htmlFor="RecipeCooking">Cuisson :</label>
                     <select id='RecipeCooking'>
                         <option value={false}>Non</option>
                         <option value={true}>Oui</option>
                     </select>
                 </div>
                 <div className='inputContainer'>
-                    <label htmlFor="RecipePrepTime">Temps de préparation (en minutes)</label>
+                    <label htmlFor="RecipePrepTime">Temps de préparation (en minutes) :</label>
                     <input id='RecipePrepTime' type="number" />
                 </div>
                 <div className='inputContainer'>
-                    <label htmlFor="RecipeImage">Image</label>
+                    <label htmlFor="RecipeImage">Lien de l'image :</label>
                     <input id='RecipeImage' type="text" />
                 </div>
             </form>
-            <button id="RecipeFormButton" onClick={() => UpdateOrCreateRecipe()}>Créer</button>
+            <div className='newRecipeFormButtonsContainer'>
+                <button class="HideRecipeFormButton" onClick={() => updateFunction()}>Annuler</button>
+                <button id="RecipeFormButton" onClick={() => UpdateOrCreateRecipe()}>Créer</button>
+            </div>
         </div>
     );
 };

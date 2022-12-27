@@ -1,14 +1,28 @@
+.profileContainer {
+    min-height: 800px;
+}
+
 .profileTitle {
     text-align: center;
-    font-size: 30px;
+    font-size: 45px;
     margin: 50px 0;
-    color: white;
+    color: black;
     padding: 40px;
 }
 
+.profilePP {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin: 0 50px;
+}
+
 .profileCard {
-    width: 50%;
-    margin: auto;
+    width: 70%;
+    margin: 0 auto 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     h5 {
         font-weight: 700;
         font-size: 23px;
@@ -17,24 +31,53 @@
             font-weight: 300;
         }
     }
+    button {
+        padding: 5px;
+        background-color: lightblue;
+        border: none;
+        transition: .3s;
+        cursor: pointer;
+        &:hover {
+            transform: scale(110%);
+        }
+    }
 }
 
 .profileUpdateForm {
-    width: 50%;
+    width: 40%;
     margin: auto;
     form {
         display: flex;
         flex-direction: column;
-        div {
-            margin: 20px 0;
-            input {
-                width: 80%;
+        input {
+            width: 100%;
+        }
+        label {
+            width: 20%;
+            font-weight: 700;
+            font-size: 23px;
+            margin: 20px 0 10px 0;
+        }
+    }
+    .sendFormButtons {
+        display: flex;
+        justify-content: space-around;
+        width: 50%;
+        margin: 20px auto;
+        .ValidButton, .cancelButton {
+            padding: 5px;
+            border: none;
+            transition: .3s;
+            cursor: pointer;
+            &:hover {
+                transform: scale(110%);
             }
-            label {
-                width: 20%;
-                font-weight: 700;
-                font-size: 23px;
-            }
+        }
+        .ValidButton {
+            background-color: green;
+        }
+        .cancelButton {
+            background-color: gray;
         }
     }
 }

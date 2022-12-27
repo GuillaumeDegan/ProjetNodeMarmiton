@@ -15,9 +15,23 @@ header {
 }
 
 .options_header1 {
-    width: 50%;
+    width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    div {
+        display: flex;
+        align-items: center;
+        button {
+            padding: 5px;
+            border: none;
+            background-color: lightcoral;
+            transition: .3s;
+            cursor: pointer;
+            &:hover {
+                transform: scale(110%);
+            }
+        }
+    }
     .button_header {
         color: rgb(255, 255, 255);
     }

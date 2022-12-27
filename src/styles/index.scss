@@ -3,6 +3,7 @@
 // components globaux
 @import "./components/header.scss";
 @import "./components/footer.scss";
+@import "./components/recetteCard.scss";
 
 //Home
 @import "./components/Home/bandeauTopAccueil.scss";
@@ -12,9 +13,11 @@
 
 //Recettes
 @import "./components/Recettes/recettesList.scss";
+@import "./components/uniqueRecette.scss";
 
 //MesRecettes
 @import "./components/MesRecettes/recettesList.scss";
+@import "./components/MesRecettes/newRecipe.scss";
 
 //Connexion
 @import "./components/Connexion/connexion.scss";

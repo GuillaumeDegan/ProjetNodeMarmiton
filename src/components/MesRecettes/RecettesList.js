@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import axios from 'axios';
 import NewRecipe from "./NewRecipe";
+import RecetteCard from "../RecetteCard";
 
 const RecettesList = () => {
   const { user, setUser } = useContext(UserContext);
@@ -33,42 +34,47 @@ const RecettesList = () => {
   }
 
   function deleteConfirmation(id) {
-    console.log(id)
     document.getElementById("deleteButton" + id).style.display = "none";
-    document.getElementById("confirmationDelete" + id).style.display = "block";
+    document.getElementById("confirmationDelete" + id).style.display = "flex";
+    document.getElementById("updateButton" + id).style.display = "none";
   }
 
   function deleteConfirmationCancel(id) {
     document.getElementById("deleteButton" + id).style.display = "block";
     document.getElementById("confirmationDelete" + id).style.display = "none";
+    document.getElementById("updateButton" + id).style.display = "block";
   }
 
   return (
     <div>
       <div className="mesRecettesComponent">
-        <button onClick={() => setNewRecipe(true)}>Créer une nouvelle recette</button>
+        <h1 className="MyRecipesTitle">Mes recettes</h1>
+        <button className="showAddFormRecipe" onClick={() => setNewRecipe(true)}>+ Nouvelle Recette</button>
         {newRecipe ? <NewRecipe recipeToUpdate={recipeToUpdate} updateFunction={updateMyRecipes} /> : null}
-        <h1>Recettes créées par moi ici</h1>
+        <div className="myRecipesContainer">
         {allRecipes.map((recipe) => {
           if(recipe.id_user === user._id) {
                 if(isEmpty) {setIsEmpty(false)}
                 return <div key={recipe._id}>
-                    <li>{recipe.name}</li>
-                    <button onClick={() => {
-                      setNewRecipe(true);
-                      setRecipeToUpdate(recipe);
-                    }}>Modifier</button>
-                    <div style={{display: "none"}} id={"confirmationDelete" + recipe._id}>
-                      Etes vous surs ? 
-                      <button onClick={() => deleteConfirmationCancel(recipe._id)}>Annuler</button>
-                      <button onClick={() => deleteItem(recipe._id)}>Supprimer</button>
-                    </div>
-                    <div id={"deleteButton" + recipe._id}>
-                      <button onClick={() => deleteConfirmation(recipe._id)}>Supprimer</button>
+                    <RecetteCard recette={recipe}/>
+                    <div className="buttonContainer">
+                      <button id={"updateButton" + recipe._id} className="ModifButton" onClick={() => {
+                        setNewRecipe(true);
+                        setRecipeToUpdate(recipe);
+                      }}>Modifier</button>
+                      <div style={{display: "none"}} id={"confirmationDelete" + recipe._id} className="DeleteConfirmationContainer">
+                        <p>Êtes vous sûrs ?</p>
+                        <button className="AnnulButton" onClick={() => deleteConfirmationCancel(recipe._id)}>Annuler</button>
+                        <button className="SupprButton" onClick={() => deleteItem(recipe._id)}>Oui</button>
+                      </div>
+                      <div id={"deleteButton" + recipe._id}>
+                        <button className="SupprButton" onClick={() => deleteConfirmation(recipe._id)}>Supprimer</button>
+                      </div>
                     </div>
                   </div>
         }})}
         {isEmpty ? "Vous n'avez pas de recette" : null}
+        </div>
       </div>
       
     </div>

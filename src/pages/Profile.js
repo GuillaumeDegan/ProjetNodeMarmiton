@@ -44,40 +44,38 @@ const Profile = () => {
     return (
         <div>
             <NavBar />
-            <h1 className='profileTitle'>Mon profil</h1>
-
-            {switchToUpdateForm ? 
-            <div className='profileUpdateForm'>
-                <form action="">
-                    <div>
+            <div className='profileContainer'>
+                <h1 className='profileTitle'>Mon profil</h1>
+                {switchToUpdateForm ? 
+                <div className='profileUpdateForm'>
+                    <form action="">
                         <label htmlFor="">Pseudo : </label>
                         <input type="text" name="username" value={FormState.username} onChange={handleChange}/>
-                    </div>
-                    <div>
                         <label htmlFor="">E-mail : </label>
                         <input type="text" name="email" value={FormState.email} onChange={handleChange}/>
-                    </div>
-                    <div>
                         <label htmlFor="">Téléphone : </label>
                         <input type="text" name="phoneNumber" value={FormState.phoneNumber} onChange={handleChange}/>
-                    </div>
-                    <div>
                         <label htmlFor="">Mot de passe : </label>
                         <input type="text" name="password" value={FormState.password} onChange={handleChange}/>
+                    </form>
+                    <div className='sendFormButtons'>
+                        <button className='ValidButton' onClick={() => updateProfile()}>Valider</button>
+                        <button className='cancelButton' onClick={() => setSwitchToUpdateForm(false)}>Annuler</button>
                     </div>
-                </form>
-                <button onClick={() => updateProfile()}>Valider</button>
-                <button onClick={() => setSwitchToUpdateForm(false)}>Annuler</button>
-            </div>
-            : 
-                <div className='profileCard'>
-                    <h5>Pseudo : <span>{user.username}</span></h5>
-                    <h5>E-mail : <span>{user.email}</span></h5>
-                    <h5>Téléphone : <span>{user.phoneNumber}</span></h5>
-                    <h5>Mot de passe : <span>{user.password}</span></h5>
-                    <button onClick={() => setSwitchToUpdateForm(true)}>Modifier le profile</button>
                 </div>
-            }
+                : 
+                    <div className='profileCard'>
+                        <img className='profilePP' src="/defaultpp.jpeg" alt="default profile picture" />
+                        <div>
+                            <h5>Pseudo : <span>{user.username}</span></h5>
+                            <h5>E-mail : <span>{user.email}</span></h5>
+                            <h5>Téléphone : <span>{user.phoneNumber}</span></h5>
+                            <h5>Mot de passe : <span>{user.password}</span></h5>
+                            <button onClick={() => setSwitchToUpdateForm(true)}>Modifier le profile</button>
+                        </div>
+                    </div>
+                }
+            </div>
             <Footer />
         </div>
     );
