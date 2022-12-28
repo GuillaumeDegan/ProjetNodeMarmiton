@@ -6,25 +6,27 @@ import { Navigate } from 'react-router-dom'
 
 const LogInForm = () => {
   const { user, setUser } = useContext(UserContext);
-  const [ usersData, setUsersData ] = useState([]);
   const [ connected, setConnected ] = useState(false);
-
-  useEffect(() => {
-    axios
-      .get("/users")
-      .then((res) => setUsersData(res.data));
-  }, []);
 
   function onSubmitHandler() {
     const username = document.getElementById("usernameInput").value;
     const password = document.getElementById("passwordInput").value;
 
-    usersData.map((user) => {
-      if (username === user.username && password === user.password) {
-          setUser(user);
-          setConnected(true);
-        }
-    }) 
+    axios.post("/users/login", {
+      username: username,
+      password: password
+    }).then(function (response) {
+      if(response.data.state) {
+        setUser(response.data.user);
+        setConnected(true);
+      } else {
+        console.log('mauvais mot de passe ou username')
+      }
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   return (
@@ -38,7 +40,7 @@ const LogInForm = () => {
           </div>
           <div className="logInInputsContainer">
             <label htmlFor="passwordInput">Mot de passe :</label>
-            <input className="logInInputs" type="text" name="passwordInput" id="passwordInput" />
+            <input className="logInInputs" type="password" name="passwordInput" id="passwordInput" />
           </div>
         </form>
         <button onClick={() => onSubmitHandler()}>soumettre</button>

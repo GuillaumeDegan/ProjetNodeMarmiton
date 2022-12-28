@@ -9,6 +9,7 @@ import axios from 'axios';
 const Profile = () => {
     const { user, setUser } = useContext(UserContext);
     const [ switchToUpdateForm, setSwitchToUpdateForm ] = useState(false);
+    const [ changePwd, setChangePwd ] = useState(false);
 
     const [FormState, setFormState] = useState({
         username: user.username,
@@ -18,20 +19,34 @@ const Profile = () => {
       });
 
     function updateProfile() {
-        console.log(FormState)
-        axios.patch("/users/" + user._id, {
-            username: FormState.username,
-            email: FormState.email,
-            phoneNumber: FormState.phoneNumber,
-            password: FormState.password,
-        }).then(function (response) {
-            console.log(response);
-            setUser(response.data);
-            setSwitchToUpdateForm(false);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        if(changePwd) {
+            axios.patch("/users/" + user._id, {
+                username: FormState.username,
+                email: FormState.email,
+                phoneNumber: FormState.phoneNumber,
+                password: document.getElementById('newPwdInput').value,
+            }).then(function (response) {
+                console.log(response);
+                setUser(response.data);
+                setSwitchToUpdateForm(false);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+        } else {
+            axios.patch("/users/" + user._id, {
+                username: FormState.username,
+                email: FormState.email,
+                phoneNumber: FormState.phoneNumber,
+            }).then(function (response) {
+                console.log(response);
+                setUser(response.data);
+                setSwitchToUpdateForm(false);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+        }
     }
 
     function handleChange(e) {
@@ -56,7 +71,11 @@ const Profile = () => {
                         <label htmlFor="">Téléphone : </label>
                         <input type="text" name="phoneNumber" value={FormState.phoneNumber} onChange={handleChange}/>
                         <label htmlFor="">Mot de passe : </label>
-                        <input type="text" name="password" value={FormState.password} onChange={handleChange}/>
+                        {changePwd ? 
+                        <input type="text" name="password" id="newPwdInput"/>
+                        : 
+                        <button onClick={() => setChangePwd(true)}>Changer le mot de passe</button>
+                        }
                     </form>
                     <div className='sendFormButtons'>
                         <button className='ValidButton' onClick={() => updateProfile()}>Valider</button>
@@ -70,7 +89,6 @@ const Profile = () => {
                             <h5>Pseudo : <span>{user.username}</span></h5>
                             <h5>E-mail : <span>{user.email}</span></h5>
                             <h5>Téléphone : <span>{user.phoneNumber}</span></h5>
-                            <h5>Mot de passe : <span>{user.password}</span></h5>
                             <button onClick={() => setSwitchToUpdateForm(true)}>Modifier le profile</button>
                         </div>
                     </div>

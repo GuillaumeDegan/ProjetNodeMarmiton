@@ -16,9 +16,21 @@ const Recette = () => {
 
   function populateData(recipe) {
     setRecipe(recipe)
+    arrangeSteps(recipe.steps)
     axios
       .get("/users/" + recipe.id_user)
       .then((res) => setRecipeOwner(res.data.username))
+  }
+
+  function arrangeSteps(steps) {
+    var stepsArranged = steps.split('!!')
+    var returnP = "";
+
+    stepsArranged.map((step) => {
+      returnP += "<p>" + step + "</p>"
+    })
+
+    document.getElementById('stepsParagraph').innerHTML = returnP;
   }
   
   return (
@@ -35,8 +47,12 @@ const Recette = () => {
           <div><img src="/prepTimeIcon.png" alt="" /> {recipe.prepTime}mins</div>
           <div><img src="/servingsIcon.png" alt="" />{recipe.servings} personnes</div>
         </div>
+        <h3 className="RecipeSubtitles">Ingrédients :</h3>
+        <div className="ingredientsContainer">
+          <dir>{recipe.ingredients}</dir>
+        </div>
         <h3 className="RecipeSubtitles">Etapes :</h3>
-        <p>{recipe.steps}</p>
+        <p id="stepsParagraph"></p>
       </div>
       <Footer />
     </div>

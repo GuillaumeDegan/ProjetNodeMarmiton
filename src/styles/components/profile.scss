@@ -53,10 +53,15 @@
             width: 100%;
         }
         label {
-            width: 20%;
             font-weight: 700;
             font-size: 23px;
             margin: 20px 0 10px 0;
+        }
+        button {
+            width: 50%;
+            background-color: lightblue;
+            border: none;
+            padding: 5px;
         }
     }
     .sendFormButtons {
