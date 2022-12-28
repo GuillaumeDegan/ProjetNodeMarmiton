@@ -1,37 +1,52 @@
 .recipeFormContainer {
-    width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+  .newRecipeForm {
+    width: 50%;
+    margin: auto;
+    .inputContainer {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+  }
+  .newRecipeFormButtonsContainer {
     display: flex;
-    flex-direction: column;
-    .newRecipeForm {
-        width: 50%;
-        margin: auto;
-       .inputContainer {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 15px;
-        } 
+    width: 50%;
+    margin: auto;
+    #RecipeFormButton,
+    .HideRecipeFormButton {
+      padding: 5px;
+      border: none;
+      transition: 0.3s;
+      width: 33%;
+      margin: auto;
+      cursor: pointer;
+      &:hover {
+        transform: scale(110%);
+      }
     }
-    .newRecipeFormButtonsContainer {
-        display: flex;
-        width: 50%;
-        margin: auto;
-        #RecipeFormButton, .HideRecipeFormButton {
-            padding: 5px;
-            border: none;
-            transition: .3s;
-            width: 33%;
-            margin: auto;
-            cursor: pointer;
-            &:hover {
-                transform: scale(110%);
-            }
-        }
-        .HideRecipeFormButton {
-            background-color: gray;
-        }
-        #RecipeFormButton {
-            background-color: green;
-        }
+    .HideRecipeFormButton {
+      background-color: rgb(133 57 255);
+      color: white;
+      border-radius: 5px;
     }
+    #RecipeFormButton {
+      background-color: rgb(133 57 255);
+      color: white;
+      border-radius: 5px;
+    }
+  }
 }
 
+input {
+  border-radius: 5px;
+  margin: 5px;
+}
+
+textarea {
+  border-radius: 5px;
+  margin: 5px;
+}
