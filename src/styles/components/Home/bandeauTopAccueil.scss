@@ -1,6 +1,21 @@
 .bandeauAccueilComponent {
-    background-color: rgb(41, 41, 41);
+    background-image: url(../../../image/ponchiki-glazur-ponchik-desert-vypechka.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 500px;
     color: white;
     padding: 40px;
+}
+
+.titre-bandeau {
+    font-family: "Montserrat";
+    font-size: 50px;
+    color: black;
+}
+
+.titre {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
