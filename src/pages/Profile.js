@@ -4,6 +4,7 @@ import NavBar from '../components/NavBar';
 import { useContext, useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import axios from 'axios';
+import { Navigate } from 'react-router-dom';
 
 
 const Profile = () => {
@@ -95,6 +96,7 @@ const Profile = () => {
                 }
             </div>
             <Footer />
+            {user === null ? <Navigate to='/connexion' /> : null}
         </div>
     );
 };
