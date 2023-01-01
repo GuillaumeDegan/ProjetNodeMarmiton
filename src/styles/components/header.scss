@@ -6,7 +6,7 @@ header {
     display: flex;
     align-items: center;
     color: white;
-    padding: 40px;
+    padding: 2%;
     font-family: "Montserrat";
     
 }
@@ -53,3 +53,39 @@ header {
 .svg-header {
     height: 30px;
 }
+
+.myRecipesContainer > div {
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width: 700px) {
+    .button_header   {
+      font-size: 11px;
+    }
+
+    .options_header1 div {
+        width: 45%;
+    }
+
+    .options_header {
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .svg-header {
+        height: 20px;
+    }
+    
+  }
+
+  @media screen and (max-width: 1250px) {
+
+    .options_header1 div {
+        width: 50%;
+    }
+
+    .svg-header {
+        height: 20px;
+    }
+  }
