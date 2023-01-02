@@ -1,27 +1,42 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
 import axios from "axios";
 import RecetteCard from "../RecetteCard";
 
 const RecettesList = () => {
   const [allRecipes, setAllRecipes] = useState([]);
-  const [isEmpty, setIsEmpty] = useState(true);
+  const [categoryChoosed, setCategoryChoosed] = useState("");
 
   useEffect(() => {
     axios.get("/recipes").then((res) => setAllRecipes(res.data));
   }, []);
 
+  function chooseCategory(cat) {
+    document.getElementById("SelectButton").classList.remove('selectedButtonCategory');
+    document.getElementById("EntréeSelectButton").classList.remove('selectedButtonCategory');
+    document.getElementById("PlatSelectButton").classList.remove('selectedButtonCategory');
+    document.getElementById("DessertSelectButton").classList.remove('selectedButtonCategory');
+    document.getElementById(cat + "SelectButton").className = "selectedButtonCategory selectCategoryButton";
+    setCategoryChoosed(cat)
+  }
+
   return (
     <div>
       <div className="allRecipesContainer">
-        {/* Toute les recettes seront dans ce div */}
+        <h1>Toute les recettes</h1>
+        <div className="selectCategoryMenu">
+          <div id="SelectButton" className="selectCategoryButton selectedButtonCategory" onClick={() => chooseCategory('')}>Toute</div>
+          <div id="EntréeSelectButton" className="selectCategoryButton" onClick={() => chooseCategory('Entrée')}>Entrées</div>
+          <div id="PlatSelectButton" className="selectCategoryButton" onClick={() => chooseCategory('Plat')}>Plats</div>
+          <div id="DessertSelectButton" className="selectCategoryButton" onClick={() => chooseCategory('Dessert')}>Desserts</div>
+        </div>
         <div className="myRecipesContainer">
-          {allRecipes.map((recipe) => {
+          {allRecipes
+          .filter((recipe) => recipe.category.includes(categoryChoosed))
+          .map((recipe) => {
             return (
               <div key={recipe._id}>
                 <RecetteCard recette={recipe} />
-                <div className="buttonContainer"></div>
               </div>
             );
           })}
