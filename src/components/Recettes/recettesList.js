@@ -15,7 +15,7 @@ const RecettesList = () => {
   return (
     <div>
       <div className="allRecipesContainer">
-        Toute les recettes seront dans ce div
+        {/* Toute les recettes seront dans ce div */}
         <div className="myRecipesContainer">
           {allRecipes.map((recipe) => {
             return (
