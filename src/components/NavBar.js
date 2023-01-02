@@ -16,7 +16,13 @@ const NavBar = () => {
     if (user === null) {
       return (
         <>
+        <head> <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'></link>
+        
+       
+ 
+        </head>
           <div className="options_header">
+            
             <div className="header_button" NavLink to="/">
               <NavLink to="/" className={"button_header"}>
                 {" "}
@@ -63,6 +69,10 @@ const NavBar = () => {
     } else {
       return (
         <>
+         <head> <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'></link>
+         
+  
+         </head>
           <div className="options_header1">
             <div>
               <NavLink to="/" className={"button_header"}>

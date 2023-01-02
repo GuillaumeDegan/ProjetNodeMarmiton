@@ -75,7 +75,7 @@ const Profile = () => {
                         {changePwd ? 
                         <input type="text" name="password" id="newPwdInput"/>
                         : 
-                        <button onClick={() => setChangePwd(true)}>Changer le mot de passe</button>
+                        <div className='button-bas'><button onClick={() => setChangePwd(true)}>Changer le mot de passe</button></div>
                         }
                     </form>
                     <div className='sendFormButtons'>
