@@ -4,9 +4,7 @@ import { UserContext } from "../../contexts/UserContext";
 import axios from "axios";
 import RecetteCard from "../RecetteCard";
 
-
 const RecettesList = () => {
-
   const [allRecipes, setAllRecipes] = useState([]);
   const [isEmpty, setIsEmpty] = useState(true);
 
@@ -23,8 +21,7 @@ const RecettesList = () => {
             return (
               <div key={recipe._id}>
                 <RecetteCard recette={recipe} />
-                <div className="buttonContainer">
-                </div>
+                <div className="buttonContainer"></div>
               </div>
             );
           })}
@@ -32,7 +29,6 @@ const RecettesList = () => {
       </div>
     </div>
   );
-
 };
 
 export default RecettesList;

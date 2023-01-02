@@ -1,150 +1,143 @@
 .RecipeCardContainer {
-    background-color: white;
-    color: black;
-    border-radius: 25px;
-    width: 300px;
-    height: 350px;
-    cursor: pointer;
-    transition: .3s;
-    margin: auto;
-    &:hover {
-        transform: scale(105%);
+  background-color: white;
+  color: black;
+  border-radius: 25px;
+  width: 300px;
+  height: 350px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: auto;
+  &:hover {
+    transform: scale(105%);
+  }
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 25px 25px 0 0;
+  }
+  .RecipeCardTextPart {
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 10px;
+    h4 {
+      font-size: 30px;
     }
-    img {
-       width: 100%;
-       height: 200px;
-       object-fit: cover;
-       border-radius: 25px 25px 0 0;
+    > h5 {
+      color: gray;
     }
-    .RecipeCardTextPart {
-        height: 140px;
+    .recipeInfos {
+      display: flex;
+      div {
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding: 0 10px;
-        h4 {
-            font-size: 30px;
+        align-items: center;
+        margin-right: 20px;
+        img {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
         }
-        >h5 {
-            color: gray;
-        }
-        .recipeInfos {
-            display: flex;
-            div {
-                display: flex;
-                align-items: center;
-                margin-right: 20px;
-                img {
-                    width: 30px;
-                    height: 30px;
-                    margin-right: 10px;
-                }
-            }
-        }
+      }
     }
-    
+  }
 }
 
 @media screen and (max-width: 1350px) {
-
-    .RecipeCardContainer {
-        background-color: white;
-        color: black;
-        border-radius: 25px;
-        width: 200px;
-        height: 250px;
-        cursor: pointer;
-        transition: 0.3s;
-        margin: auto;
-    }
-
-    .RecipeCardContainer img {
-        height: 100px;
-    }
-
-    h4 {
-        font-size: 20px !important;
-    }
-
-    .card_writting {
-        font-size: 15px;
-    }
-
-    .buttonContainer {
-     
-        width: 200px !important;
-        
-    }
-
-    .SupprButton {
-        font-size: 0px !important;
-    }
-
-    .ModifButton {
-        font-size: 0px !important;
-        width: auto !important;
-    }
+  .RecipeCardContainer {
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+    width: 200px;
+    height: 250px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: auto;
   }
+
+  .RecipeCardContainer img {
+    height: 100px;
+  }
+
+  h4 {
+    font-size: 20px !important;
+  }
+
+  .card_writting {
+    font-size: 15px;
+  }
+
+  .buttonContainer {
+    width: 200px !important;
+  }
+
+  .SupprButton {
+    font-size: 0px !important;
+  }
+
+  .ModifButton {
+    font-size: 0px !important;
+    width: auto !important;
+  }
+}
 
 @media screen and (max-width: 900px) {
-   
-    .RecipeCardContainer {
-        background-color: white;
-        color: black;
-        border-radius: 15px;
-        width: 150px;
+  .RecipeCardContainer {
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    width: 150px;
     height: 200px;
-        cursor: pointer;
-        transition: 0.3s;
-        margin: auto;
-    }
-
-    .RecipeCardContainer img {
-        height: 100px;
-    }
-    h4 {
-        font-size: 10px !important;
-    }
-    .RecipeCardTextPart {
-        height: 90px !important;
-    }
-
-    .card_writting {
-        font-size: 9px;
-    }
-    .RecipeCardContainer .RecipeCardTextPart .recipeInfos div img {
-        width: 10px;
-        height: 10px;
-        margin-right: 5px;
-    }
-
-    .recipeInfos {
-        display: block !important;
-    }
-    .buttonContainer {
-        width: 100px !important;
-    }
+    cursor: pointer;
+    transition: 0.3s;
+    margin: auto;
   }
 
-  @media screen and (max-width: 700px) {
+  .RecipeCardContainer img {
+    height: 100px;
+  }
+  h4 {
+    font-size: 10px !important;
+  }
+  .RecipeCardTextPart {
+    height: 90px !important;
+  }
 
+  .card_writting {
+    font-size: 9px;
+  }
+  .RecipeCardContainer .RecipeCardTextPart .recipeInfos div img {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+  }
 
+  .recipeInfos {
+    display: block !important;
+  }
+  .buttonContainer {
+    width: 100px !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
   .RecipeCardContainer {
-      background-color: white;
-      color: black;
-      border-radius: 15px;
-      width: 60px;
-      height: 100px;
-      cursor: pointer;
-      transition: 0.3s;
-      margin: auto;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    width: 60px;
+    height: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: auto;
   }
 
   .RecipeCardContainer img {
     height: 40px;
-}
+  }
 
-.buttonContainer {
+  .buttonContainer {
     width: 80px !important;
-}
+  }
 }
