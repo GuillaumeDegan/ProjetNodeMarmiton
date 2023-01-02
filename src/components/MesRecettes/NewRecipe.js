@@ -56,6 +56,19 @@ const NewRecipe = ({ recipeToUpdate, updateFunction }) => {
         }
     }
 
+    function cancelForm() {
+        document.getElementById("RecipeName").value = "";
+        document.getElementById("RecipeCategory").value = "";
+        document.getElementById("RecipeServings").value = "";
+        document.getElementById("RecipeIngredients").value = "";
+        document.getElementById("RecipeSteps").value = "";
+        document.getElementById("RecipeCooking").value = "";
+        document.getElementById("RecipePrepTime").value = "";
+        document.getElementById("RecipeImage").value = "";
+        document.getElementById("RecipeFormButton").innerHTML = "Créer";
+        updateFunction()
+    }
+
     useEffect(() => {
         if(recipeToUpdate !== null) {
             document.getElementById("RecipeName").value = recipeToUpdate.name;
@@ -79,7 +92,12 @@ const NewRecipe = ({ recipeToUpdate, updateFunction }) => {
                 </div>
                 <div className='inputContainer'>
                     <label htmlFor="RecipeCategory">Catégorie :</label>
-                    <input id='RecipeCategory' type="text" />
+                    <select name="" id="RecipeCategory">
+                        <option>Choisir une catégorie</option>
+                        <option value="Entrée">Entrée</option>
+                        <option value="Plat">Plat</option>
+                        <option value="Dessert">Dessert</option>
+                    </select>
                 </div>
                 <div className='inputContainer'>
                     <label htmlFor="RecipeServings">Nombre de personnes :</label>
@@ -110,7 +128,7 @@ const NewRecipe = ({ recipeToUpdate, updateFunction }) => {
                 </div>
             </form>
             <div className='newRecipeFormButtonsContainer'>
-                <button class="HideRecipeFormButton" onClick={() => updateFunction()}>Annuler</button>
+                <button class="HideRecipeFormButton" onClick={() => cancelForm()}>Annuler</button>
                 <button id="RecipeFormButton" onClick={() => UpdateOrCreateRecipe()}>Créer</button>
             </div>
         </div>

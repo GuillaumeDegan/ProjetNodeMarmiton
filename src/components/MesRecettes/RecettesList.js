@@ -37,13 +37,18 @@ const RecettesList = () => {
     document.getElementById("updateButton" + id).style.display = "block";
   }
 
+  function newRecipeButtonPressed() {
+    setNewRecipe(true)
+    setRecipeToUpdate(null)
+  }
+
   return (
     <div>
       <div className="mesRecettesComponent">
         <h1 className="MyRecipesTitle">Mes recettes</h1>
         <button
           className="showAddFormRecipe"
-          onClick={() => setNewRecipe(true)}
+          onClick={() => newRecipeButtonPressed()}
         >
           + Nouvelle Recette
         </button>
