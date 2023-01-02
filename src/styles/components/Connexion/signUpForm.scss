@@ -6,9 +6,14 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    border: 2px solid #000;
+    border: 2px solid white;
     align-content: center;
     align-items: center;
+    color: white;
+    h1 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+    }
     .SignUpForm {
         display: flex;
         flex-direction: column;
@@ -20,6 +25,32 @@
             flex-direction: column;
             input {
                 width: 300px;
+            }
+        }
+    }
+    button {
+        background-color: rgb(133, 57, 255);
+        border: none;
+        padding: 5px;
+        transition: .3s;
+        cursor: pointer;
+        color: white;
+        margin-bottom: 20px;
+        &:hover {
+            transform: scale(105%);
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .SignUpFormContainer {
+        width: 95%;
+    }
+    .SignUpForm {
+        .SignUpInputsContainer {
+            width: 90% !important;
+            input {
+                width: 90% !important;
             }
         }
     }

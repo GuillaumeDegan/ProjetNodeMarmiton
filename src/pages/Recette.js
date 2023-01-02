@@ -49,7 +49,7 @@ const Recette = () => {
         </div>
         <h3 className="RecipeSubtitles">Ingrédients :</h3>
         <div className="ingredientsContainer">
-          <dir>{recipe.ingredients}</dir>
+          <div>{recipe.ingredients}</div>
         </div>
         <h3 className="RecipeSubtitles">Etapes :</h3>
         <p id="stepsParagraph"></p>

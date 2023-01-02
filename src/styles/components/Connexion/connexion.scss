@@ -1,16 +1,22 @@
 .connexionSpan {
     text-decoration: underline;
     cursor: pointer;
-    color: black;
+    color: rgb(133, 57, 255);
     padding: 40px;
 }
 
 .connexionP {
     text-align: center;
+    color: white;
 }
 
 .connexionFormContainer {
     padding: 70px 0;
-    height: auto;
-    min-height: 90vh;
+    height: 800px;
+}
+
+@media screen and (max-width: 500px) {
+    .connexionSpan {
+        padding: 0;
+    }
 }
