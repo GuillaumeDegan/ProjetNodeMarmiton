@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import RecetteCard from "../RecetteCard";
 
@@ -12,10 +12,11 @@ const RecettesList = () => {
   }, []);
 
   function chooseCategory(cat) {
-    document.getElementById("SelectButton").classList.remove('selectedButtonCategory');
-    document.getElementById("EntréeSelectButton").classList.remove('selectedButtonCategory');
-    document.getElementById("PlatSelectButton").classList.remove('selectedButtonCategory');
-    document.getElementById("DessertSelectButton").classList.remove('selectedButtonCategory');
+    const elements = document.querySelectorAll('.selectCategoryButton');
+    elements.forEach(function(element) {
+      element.classList.remove('selectedButtonCategory');
+    });
+
     document.getElementById(cat + "SelectButton").className = "selectedButtonCategory selectCategoryButton";
     setCategoryChoosed(cat)
   }
@@ -25,7 +26,7 @@ const RecettesList = () => {
       <div className="allRecipesContainer">
         <h1>Toute les recettes</h1>
         <div className="selectCategoryMenu">
-          <div id="SelectButton" className="selectCategoryButton selectedButtonCategory" onClick={() => chooseCategory('')}>Toute</div>
+          <div id="SelectButton" className="selectCategoryButton selectedButtonCategory" onClick={() => chooseCategory('')}>Tout</div>
           <div id="EntréeSelectButton" className="selectCategoryButton" onClick={() => chooseCategory('Entrée')}>Entrées</div>
           <div id="PlatSelectButton" className="selectCategoryButton" onClick={() => chooseCategory('Plat')}>Plats</div>
           <div id="DessertSelectButton" className="selectCategoryButton" onClick={() => chooseCategory('Dessert')}>Desserts</div>

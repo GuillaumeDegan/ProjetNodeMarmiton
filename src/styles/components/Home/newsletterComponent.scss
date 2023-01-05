@@ -1,6 +1,32 @@
 .newsletterComponent {
-    background-color: rgb(22, 22, 22);
-    height: 200px;
+    background-color: white;
     color: white;
-    padding: 40px;
+    padding: 100px;
+    h3 {
+        text-align: center;
+        font-size: 26px;
+        margin-bottom: 20px;
+        color: rgb(133, 57, 255);
+    }
+    >div {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        input {
+            padding: 5px;
+        }
+        button {
+            background-color: rgb(133, 57, 255);
+            border: none;
+            padding: 5px;
+            transition: .3s;
+            cursor: pointer;
+            color: white;
+            border-radius: 10px;
+            &:hover {
+                transform: scale(105%);
+            }
+        }
+    }
 }

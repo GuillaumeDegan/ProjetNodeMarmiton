@@ -1,10 +1,11 @@
 footer {
     background-color: rgb(133, 57, 255);
-    height: 75px;
+    min-height: 75px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     color: white;
-    padding: 40px;
+    padding: 10px;
     font-family: "Montserrat";
 }
